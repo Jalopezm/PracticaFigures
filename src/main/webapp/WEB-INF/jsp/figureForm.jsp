@@ -67,19 +67,19 @@
               ctx.beginPath();
               ctx.lineWidth = "4";
               ctx.strokeStyle = color;
-              ctx.arc(posX, posY, width, 0,2*Math.PI);
+              ctx.arc(posX, posY, width, 0,2 * Math.PI);
               ctx.stroke();
       }
       function drawTriangle(width,type,posX,posY,color){
-       let height= Math.sqrt(3*width)/2;
+        let height = ((Math.sqrt(3)*width)/2);
         ctx.beginPath();
-        ctx.lineWidth = "4";
         ctx.strokeStyle = color;
         ctx.moveTo(posX, posY);
-        ctx.lineTo(posX+width, posY);
-        ctx.lineTo(posX - width/2, posY-height);
-        ctx.closePath();
-  }
+        ctx.lineTo((posX + width) , posY);
+        ctx.lineTo((posX + (width/2)), (posY + height));
+        ctx.lineTo(posX, posY);
+        ctx.stroke();
+      }
     </script>
 </body>
 </html>
