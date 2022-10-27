@@ -58,29 +58,31 @@
     }
       function drawSquare(width,type,posX,posY,color){
         ctx.beginPath();
-        ctx.lineWidth = "2";
+        ctx.lineWidth = "4";
         ctx.strokeStyle = color;
         ctx.rect(posX, posY, width, width);
         ctx.stroke();
       }
       function drawCircle(width,type,posX,posY,color){
               ctx.beginPath();
-              ctx.lineWidth = "2";
+              ctx.lineWidth = "4";
               ctx.strokeStyle = color;
-              ctx.arc(posX, posY, width, 0,2*Math.PI);
+              ctx.arc(posX, posY, width, 0,2 * Math.PI);
               ctx.stroke();
       }
       function drawTriangle(width,type,posX,posY,color){
-        let height= Math.sqrt(3*Number(width))/2;
-        ctx.beginPath();
-        ctx.lineWidth = "2";
-        ctx.strokeStyle = color;
-        ctx.moveTo(Number(posX),  Number(posY));
-        ctx.lineTo(Number(posX)+Number(width), Number(posY));
-        ctx.lineTo(Number(posX)-(Number(width)/2), Number(posY)+height*2);
-        ctx.lineTo(Number(posX),  Number(posY));
-        ctx.stroke();
-  }
+          let height= (Math.sqrt(3)*Number(width))/2;
+                ctx.beginPath();
+                ctx.lineWidth = "4";
+                ctx.lineWidth = "2";
+                ctx.strokeStyle = color;
+                ctx.moveTo(Number(posX),  Number(posY));
+                ctx.lineTo(Number(posX)+Number(width), Number(posY));
+                ctx.lineTo(Number(posX)+Number(width)/2, Number(posY)-height);
+                ctx.lineTo(Number(posX)+(Number(width)/2), Number(posY)-height);
+                ctx.lineTo(Number(posX),  Number(posY));
+                ctx.stroke();
+      }
     </script>
 </body>
 </html>

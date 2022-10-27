@@ -2,7 +2,7 @@ package com.esliceu.PracticaFigures.Model;
 
 public class Figure {
     String figureType;
-    String user;
+    User user;
     int coordX;
     int coordY;
 
@@ -14,11 +14,11 @@ public class Figure {
         this.figureType = figureType;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
