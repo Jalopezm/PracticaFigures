@@ -4,9 +4,10 @@
 <head></head>
 <body>
 <h1>Figure Form</h1>
-    <form method="post" action="/drawer">
+    <form method="post" action="/drawer" onChange="drawFigure()">
+    Figure Name: <input type="text" name="figureName" id="figureName">
+    <br>
     <label for="figures">Choose a Figure:</label>
-
     <select name="figures" id="type">
       <option value="circle">Circle</option>
       <option value="triangle">Triangle</option>
@@ -40,7 +41,7 @@
       const ctx = c.getContext("2d");
 
     function drawFigure(){
-
+           ctx.clearRect(0,0,c.width,c.height);
           let width = document.getElementById("width").value;
           let type = document.getElementById("type").value;
           let posX = document.getElementById("positionX").value;
