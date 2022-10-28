@@ -38,7 +38,7 @@ public class Figure {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 
