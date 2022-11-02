@@ -3,46 +3,22 @@
 <html>
 <head></head>
 <body>
-<h1>Figure Form</h1>
-<a href="/figureList">Figures List</a>
-    <form method="post" action="/drawer" onchange="drawFigure()">
-    Figure Name: <input type="text" name="figureName" id="figureName">
-    <br>
-    <label for="figures">Choose a Figure:</label>
-    <select name="figures" id="type">
-      <option value="circle">Circle</option>
-      <option value="triangle">Triangle</option>
-      <option value="square">Square</option>
-    </select>
-    <br>
-        <label for="color">Choose a Color:</label>
-    <select name="color" id="color">
-          <option value="red">Red</option>
-          <option value="blue">Blue</option>
-          <option value="grey">Grey</option>
-          <option value="yellow">Yellow</option>
-          <option value="green">Green</option>
-          <option value="black">Black</option>
-        </select>
-        <br>
-    Select Width:<input type="number" name="width" id="width">
-    <br>
-        Select PositionX:<input type="number" name="positionX" id="positionX">
-        <br>
-            Select PositionY:<input type="number" name="positionY" id="positionY">
-            <br>
-        <br>
-        <input type="submit" name="Send" value="Send">
-        <button name="View" value="View" onclick="drawFigure(); return false;">View</button>
-    </form>
+<h1>Figure View</h1>
     <canvas id="canvas" width="800" height="600" style="border:1px solid black;">
     </canvas>
+    <c:forEach var="figure" items="${figure}">
+        <input type="hidden" value=${figure.type} id="type"></input>
+        <input type="hidden" value=${figure.coordX} id="positionX"></input>
+        <input type="hidden" value=${figure.coordY} id="positionY"></input>
+        <input type="hidden" value=${figure.width} id="width"></input>
+        <input type="hidden" value=${figure.color} id="color"></input>
+    </c:forEach>
     <script>
       const c = document.getElementById("canvas");
       const ctx = c.getContext("2d");
-
+      drawFigure();
     function drawFigure(){
-           ctx.clearRect(0,0,c.width,c.height);
+          ctx.clearRect(0,0,c.width,c.height);
           let width = document.getElementById("width").value;
           let type = document.getElementById("type").value;
           let posX = document.getElementById("positionX").value;

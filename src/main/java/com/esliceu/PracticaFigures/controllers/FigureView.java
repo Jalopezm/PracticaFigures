@@ -1,5 +1,6 @@
 package com.esliceu.PracticaFigures.controllers;
 
+import com.esliceu.PracticaFigures.Model.Figure;
 import com.esliceu.PracticaFigures.services.FigureServ;
 
 import javax.servlet.RequestDispatcher;
@@ -10,36 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/drawer")
-public class Draw extends HttpServlet {
-    FigureServ figureServ = new FigureServ();
-    int width;
-    String user;
-    int posX;
-    int posY;
-    String type;
-    String name;
-    String color;
-
+@WebServlet("/figureView")
+public class FigureView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/figureForm.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/figureView.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        width = Integer.parseInt(req.getParameter("width"));
-        type = req.getParameter("figures");
-        posX = Integer.parseInt(req.getParameter("positionX"));
-        posY = Integer.parseInt(req.getParameter("positionY"));
-        color = req.getParameter("color");
-        name = req.getParameter("figureName");
-        user = req.getParameter("user");
-        figureServ.figureCreation(name, type, color, posX, posY, width, user);
+        int figureId = Integer.parseInt(req.getParameter("figureId"));
+        Figure figure = new FigureServ().getFigureById(figureId);
+        req.setAttribute("figure", figure);
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/figureForm.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/figureView.jsp");
         dispatcher.forward(req, resp);
     }
 }

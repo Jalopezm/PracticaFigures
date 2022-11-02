@@ -17,4 +17,5 @@ public class FigureDAO implements FigureDAOInter{
         idFigure+=1;
         return false;
     }
+
 }

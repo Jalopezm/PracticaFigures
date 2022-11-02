@@ -4,7 +4,7 @@ public class Figure {
     int id;
     String figureType;
     String name;
-    User user;
+    String user;
     int coordX;
     int coordY;
     int width;
@@ -34,7 +34,7 @@ public class Figure {
         this.name = name;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
