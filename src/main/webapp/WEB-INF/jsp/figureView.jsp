@@ -6,13 +6,11 @@
 <h1>Figure View</h1>
     <canvas id="canvas" width="800" height="600" style="border:1px solid black;">
     </canvas>
-    <c:forEach var="figure" items="${figure}">
-        <input type="hidden" value=${figure.type} id="type"></input>
-        <input type="hidden" value=${figure.coordX} id="positionX"></input>
-        <input type="hidden" value=${figure.coordY} id="positionY"></input>
-        <input type="hidden" value=${figure.width} id="width"></input>
-        <input type="hidden" value=${figure.color} id="color"></input>
-    </c:forEach>
+        <input type="hidden" value=${figure.figureType} id="type">
+        <input type="hidden" value=${figure.coordX} id="positionX">
+        <input type="hidden" value=${figure.coordY} id="positionY">
+        <input type="hidden" value=${figure.width} id="width">
+        <input type="hidden" value=${figure.color} id="color">
     <script>
       const c = document.getElementById("canvas");
       const ctx = c.getContext("2d");

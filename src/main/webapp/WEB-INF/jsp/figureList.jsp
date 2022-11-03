@@ -29,11 +29,11 @@ table, th, td {
     <td>${figure.coordY}</td>
     <td>${figure.width}</td>
     <td>${figure.color}</td>
-    <td><form action="/figureView">
-        <input type="hidden" value=${figure.id}>
+    <td><form method ="post" action="/figureList">
+        <input type="hidden" value=${figure.id} name="figureId">
         <input type="submit" value="View">
     </form></td>
-    <td><form action="/figureView">
+    <td><form method="post" action="/figureList">
             <input type="hidden" value=${figure.id} name="figureId">
             <input type="submit" value="Delete">
     </form></td>

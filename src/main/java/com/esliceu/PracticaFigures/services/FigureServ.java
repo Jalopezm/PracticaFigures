@@ -28,8 +28,9 @@ public class FigureServ {
         figureDAO.insert(figure);
     }
     public Figure getFigureById(int id){
-        Figure figure = new Figure();
-        listFigures().get(id);
+        List<Figure> list = listFigures();
+        Figure figure = list.get(id);
+        System.out.println("figura"+ figure);
         return figure;
     }
 }

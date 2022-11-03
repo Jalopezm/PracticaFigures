@@ -9,12 +9,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/figureView")
 public class FigureView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        int figureId = (int) session.getAttribute("figureID");
+        Figure figure = new FigureServ().getFigureById(figureId);
+        req.setAttribute("figure", figure);
+        System.out.println("figure"+figure.toString());
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/figureView.jsp");
         dispatcher.forward(req, resp);
@@ -22,11 +28,9 @@ public class FigureView extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int figureId = Integer.parseInt(req.getParameter("figureId"));
-        Figure figure = new FigureServ().getFigureById(figureId);
-        req.setAttribute("figure", figure);
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/figureView.jsp");
         dispatcher.forward(req, resp);
     }
+
 }

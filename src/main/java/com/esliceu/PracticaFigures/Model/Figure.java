@@ -73,5 +73,19 @@ public class Figure {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Figure{" +
+                "id=" + id +
+                ", figureType='" + figureType + '\'' +
+                ", name='" + name + '\'' +
+                ", user='" + user + '\'' +
+                ", coordX=" + coordX +
+                ", coordY=" + coordY +
+                ", width=" + width +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }
 
