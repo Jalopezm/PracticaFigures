@@ -11,10 +11,10 @@
         <input type="hidden" value=${figure.coordY} id="positionY">
         <input type="hidden" value=${figure.width} id="width">
         <input type="hidden" value=${figure.color} id="color">
-    <script>
+   <script>
       const c = document.getElementById("canvas");
       const ctx = c.getContext("2d");
-      drawFigure();
+
     function drawFigure(){
           ctx.clearRect(0,0,c.width,c.height);
           let width = document.getElementById("width").value;
@@ -29,6 +29,8 @@
         case "square": drawSquare(width,type,posX,posY,color);
                 break;
          case "triangle": drawTriangle(width,type,posX,posY,color);
+                  break;
+         case "pentagon": drawPentagon(width,type,posX,posY,color);
                   break;
          }
     }
@@ -50,7 +52,6 @@
           let height= (Math.sqrt(3)*Number(width))/2;
                 ctx.beginPath();
                 ctx.lineWidth = "4";
-                ctx.lineWidth = "2";
                 ctx.strokeStyle = color;
                 ctx.moveTo(Number(posX),  Number(posY));
                 ctx.lineTo(Number(posX)+Number(width), Number(posY));
@@ -59,6 +60,20 @@
                 ctx.lineTo(Number(posX),  Number(posY));
                 ctx.stroke();
       }
+      function drawPentagon(width,type,posX,posY,color){
+                    let angle = 2*Math.PI/5;
+                    ctx.beginPath();
+                    ctx.translate(posX, posY);
+                    ctx.moveTo(width, 0);
+                    ctx.lineWidth = "4";
+                    ctx.strokeStyle = color;
+                    ctx.lineTo(width*Math.cos(1 * angle), width*Math.sin(1 * angle));
+                    ctx.lineTo(width*Math.cos(2 * angle), width*Math.sin(2 * angle));
+                    ctx.lineTo(width*Math.cos(3 * angle), width*Math.sin(3 * angle));
+                    ctx.lineTo(width*Math.cos(4 * angle), width*Math.sin(4 * angle));
+                    ctx.lineTo(width*Math.cos(5 * angle), width*Math.sin(5 * angle));
+                    ctx.stroke();
+            }
     </script>
 </body>
 </html>

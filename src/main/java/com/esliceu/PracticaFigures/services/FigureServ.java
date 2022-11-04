@@ -4,6 +4,7 @@ import com.esliceu.PracticaFigures.DAO.FigureDAO;
 import com.esliceu.PracticaFigures.DAO.FigureDAOInter;
 import com.esliceu.PracticaFigures.Model.Figure;
 
+import java.io.FileFilter;
 import java.util.List;
 
 public class FigureServ {
@@ -30,7 +31,12 @@ public class FigureServ {
     public Figure getFigureById(int id){
         List<Figure> list = listFigures();
         Figure figure = list.get(id);
-        System.out.println("figura"+ figure);
+
         return figure;
+    }
+
+    public void deleteFigure(int id){
+        List<Figure> list = listFigures();
+        list.remove(id);
     }
 }

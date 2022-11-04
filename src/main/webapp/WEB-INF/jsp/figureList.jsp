@@ -33,12 +33,12 @@ table, th, td {
         <input type="hidden" value=${figure.id} name="figureId">
         <input type="submit" value="View">
     </form></td>
-    <td><form method="post" action="/figureList">
+    <td><form method="post" action="/figureDelete">
             <input type="hidden" value=${figure.id} name="figureId">
             <input type="submit" value="Delete">
     </form></td>
     </tr>
-        </table>
 </c:forEach>
+      </table>
 </body>
 </html>

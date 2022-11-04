@@ -1,6 +1,5 @@
 package com.esliceu.PracticaFigures.controllers;
 
-import com.esliceu.PracticaFigures.Model.Figure;
 import com.esliceu.PracticaFigures.services.FigureServ;
 
 import javax.servlet.RequestDispatcher;
@@ -12,24 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/figureView")
-public class FigureView extends HttpServlet {
+
+@WebServlet("/figureDelete")
+public class FigureDelete extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        int figureId = (int) session.getAttribute("figureID");
-        Figure figure = new FigureServ().getFigureById(figureId);
-        req.setAttribute("figure", figure);
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/figureView.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/figureList.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/figureView.jsp");
-        dispatcher.forward(req, resp);
+        HttpSession session = req.getSession();
+        int figureId = (int) session.getAttribute("figureID");
+        new FigureServ().deleteFigure(figureId);
+        resp.sendRedirect("/figureList");
     }
-
 }
