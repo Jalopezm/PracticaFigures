@@ -60,6 +60,8 @@
                   break;
          case "pentagon": drawPentagon(width,type,posX,posY,color);
                   break;
+         case "7star": draw7Star(width,type,posX,posY,color);
+                           break;
          }
     }
       function drawSquare(width,type,posX,posY,color){
@@ -96,11 +98,10 @@
            let shift = (Math.PI / 180.0) * -50;
 
             ctx.beginPath();
-            ctx.moveTo (posX +  width * Math.cos(0), posY +  width *  Math.sin(0));
 
             for (let i = 0; i <= 5;i++) {
             	let curStep = i * step + shift;
-                ctx.lineTo (posX + width * Math.cos(curStep), posY + width * Math.sin(curStep));
+                ctx.lineTo (Number(posX) + Number(width) * Math.cos(curStep), Number(posY) + Number(width) * Math.sin(curStep));
             }
 
             ctx.strokeStyle = color;
@@ -108,6 +109,32 @@
             ctx.closePath();
             ctx.stroke();
       }
+       function draw7Star(width,type,posX,posY,color) {
+                        let outerRadius = Number(width)/2;
+                        let innerRadius = outerRadius / 4;
+                        let rotAngle = Math.PI / 2 * 3;
+                        let step = Math.PI / 7;
+
+                        ctx.beginPath();
+                        ctx.moveTo(Number(posX), Number(posY) - outerRadius)
+                        for (i = 0; i < 7; i++) {
+                            let newX = Number(posX) + Math.cos(rotAngle) * outerRadius;
+                            let newY = Number(posY) + Math.sin(rotAngle) * outerRadius;
+                            ctx.lineTo(newX, newY)
+                            rotAngle += step
+
+                            newX = Number(posX) + Math.cos(rotAngle) * innerRadius;
+                            newY = Number(posY) + Math.sin(rotAngle) * innerRadius;
+                            ctx.lineTo(newX, newY)
+                            rotAngle += step
+                        }
+                        ctx.lineTo(Number(posX), Number(posY) - (outerRadius));
+                        ctx.closePath();
+                        ctx.lineWidth = 4;
+                        ctx.strokeStyle = color;
+                        ctx.stroke();
+
+                    }
     </script>
 </body>
 </html>

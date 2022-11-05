@@ -37,6 +37,9 @@ public class Draw extends HttpServlet {
         color = req.getParameter("color");
         name = req.getParameter("figureName");
         user = req.getParameter("user");
+        if (name.equals("")) {
+            name = type + " " + Math.round(Math.random() * 1000);
+        }
         figureServ.figureCreation(name, type, color, posX, posY, width, user);
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/figureForm.jsp");
