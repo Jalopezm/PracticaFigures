@@ -5,8 +5,10 @@
 <body>
 <h1>Figure Form</h1>
 <a href="/figureList">Figures List</a>
+<a href="/userFigureList">User Figures List</a>
     <form method="post" action="/drawer" onchange="drawFigure()">
-    User Name:<input type="text" name="userName" id="userName" value=${user.name}>
+    User Name:<h2>${user.getName()}</h2>
+    <br>
     Figure Name: <input type="text" name="figureName" id="figureName">
     <br>
     <label for="figures">Choose a Figure:</label>

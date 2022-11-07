@@ -14,26 +14,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-
-@WebServlet("/figureList")
-public class FigureList extends HttpServlet {
+@WebServlet("/userFigureList")
+public class UserFigureList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Figure> figureList = FigureServ.listFigures();
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user");
+        List<Figure> figureList = FigureServ.userListFigures(user);
         req.setAttribute("figure", figureList);
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/figureList.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/userFigureList.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int figureId = Integer.parseInt(req.getParameter("figureId"));
-        System.out.println("figureid" + figureId);
-        HttpSession session = req.getSession();
-        session.setAttribute("figureID", figureId);
-        session.getAttribute("user");
-
-        resp.sendRedirect("/figureView");
+        super.doPost(req, resp);
     }
 }

@@ -3,8 +3,6 @@ package com.esliceu.PracticaFigures.Model;
 public class User {
     int id;
     String name;
-    String password;
-
 
     public int getId() {
         return id;
@@ -22,11 +20,4 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

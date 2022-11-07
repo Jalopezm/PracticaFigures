@@ -11,11 +11,10 @@ public class FigureDAO implements FigureDAOInter{
     static int idFigure= 0;
 
     @Override
-    public boolean insert(Figure figure) {
+    public void insert(Figure figure) {
         figure.setId(idFigure);
         figureList.add(figure);
         idFigure+=1;
-        return false;
     }
 
 }

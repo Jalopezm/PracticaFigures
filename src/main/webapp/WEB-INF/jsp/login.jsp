@@ -7,10 +7,10 @@
 <body>
 <h1>Login</h1>
     <form method="post" action="/login">
-    Name: <input type="text" name="user" id="user">
-    <br>
-    Password: <input type="password" name="pass" id="pass">
-    <br>
+    Name: <input type="text" name="nameUser" id="nameUser">
+    <c:if test="${not empty error}">
+    <p>Introduce almenos un caracter</p>
+    </c:if>
     <input type="submit" name="Send" value="Send">
     </form>
 </body>

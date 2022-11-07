@@ -2,19 +2,26 @@ package com.esliceu.PracticaFigures.DAO;
 
 import com.esliceu.PracticaFigures.Model.User;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO implements UserDAOInter {
 
-    public static Map userMap = new HashMap<>();
-    static int userId= 0;
+    public static List<User> userList = new ArrayList<User>();
+    static int userId = 0;
 
     @Override
-    public boolean createUser(User user) {
-        user.setId(userId);
-        userMap.put(user.getName(),user.getPassword());
-        userId+=1;
-        return false;
+    public void createUser(User user) {
+        if (!userList.contains(user.getName())) {
+            user.setId(userId);
+            userList.add(user);
+            userId += 1;
+        }
     }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userList;
+    }
+
 }
