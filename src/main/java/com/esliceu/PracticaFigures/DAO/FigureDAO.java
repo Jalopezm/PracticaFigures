@@ -16,5 +16,4 @@ public class FigureDAO implements FigureDAOInter{
         figureList.add(figure);
         idFigure+=1;
     }
-
 }
