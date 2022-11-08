@@ -4,7 +4,7 @@
 }
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
 body {
-  background-image: url("/WEB-INF/img/background.png");
+  background-image: url("https://img.freepik.com/fotos-premium/fondo-carton-textura-hoja-papel-kraft-reciclado-eco-marron_293060-5692.jpg?w=1380");
 }
 body.login:before {
   content: " ";
@@ -409,4 +409,5 @@ table thead {
   margin-right: 5%;
   margin-top: 5%;
   float: right;
+  background-color:#FFF;
 }
