@@ -16,11 +16,21 @@
     <div id="view">
         <div id="form">
             <h1>Figure:${figure.name}</h1>
+            <label>FigureType
             <input type="text" value=${figure.figureType} id="type"></input>
+            </label>
+            <label>Coord X
             <input type="text" value=${figure.coordX} id="positionX"></input>
+            </label>
+            <label>Coord Y
             <input type="text" value=${figure.coordY} id="positionY"></input>
+            </label>
+            <label>Width
             <input type="text" value=${figure.width} id="width"></input>
+            </label>
+            <label>Color
             <input type="text" value=${figure.color} id="color"></input>
+            </label>
         </div>
     </div>
     <canvas id="canvas" width="800" height="600" style="border:1px solid black;">
