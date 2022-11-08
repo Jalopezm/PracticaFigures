@@ -16,4 +16,16 @@ public class FigureDAO implements FigureDAOInter{
         figureList.add(figure);
         idFigure+=1;
     }
+
+    public void deleteFigure(int id){
+        int currFig = -1;
+        for (Figure figure :figureList) {
+            if (id == figure.getId()){
+                currFig = figureList.indexOf(figure);
+            }
+        }
+        if(currFig != -1){
+            figureList.remove(currFig);
+        }
+    }
 }

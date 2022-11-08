@@ -10,7 +10,9 @@
 
 <body>
     <a href="/drawer" class="button">Draw Figure</a>
+    <a href="/figureList" class="button">Figures List</a>
     <a href="/userFigureList" class="button">User Figures List</a>
+    <h1>Figure View</h1>
     <div id="view">
         <div id="form">
             <h1>Figure:${figure.name}</h1>

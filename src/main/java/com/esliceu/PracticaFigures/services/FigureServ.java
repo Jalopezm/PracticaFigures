@@ -42,12 +42,15 @@ public class FigureServ {
     }
     public Figure getFigureById(int id){
         List<Figure> list = listFigures();
-        Figure figure = list.get(id);
-        return figure;
+        for (Figure figure : list) {
+            if (id == figure.getId()){
+                return figure;
+            }
+        }
+       return null;
     }
 
-    public void deleteFigure(int id){
-        List<Figure> list = listFigures();
-        list.remove(id);
+    public void deleteFigureById(int id){
+        figureDAO.deleteFigure(id);
     }
 }

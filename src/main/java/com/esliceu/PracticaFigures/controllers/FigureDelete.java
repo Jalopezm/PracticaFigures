@@ -23,9 +23,9 @@ public class FigureDelete extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int figureId = Integer.parseInt(req.getParameter("figureId"));
         HttpSession session = req.getSession();
-        int figureId = (int) session.getAttribute("figureID");
-        new FigureServ().deleteFigure(figureId);
-        resp.sendRedirect("/figureList");
+        session.setAttribute("figureID", figureId);
+        resp.sendRedirect("/deleteConfirm");
     }
 }

@@ -137,8 +137,7 @@ body.login:before {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
   float: left;
 }
-#figForm:before,
-#login:after {
+#figForm:before {
   content: " ";
   display: block;
   background: rgba(0, 0, 0, 0.1);
@@ -153,14 +152,6 @@ body.login:before {
   -moz-transform: rotate(-25deg);
   -o-transform: rotate(-25deg);
   transform: rotate(-25deg);
-}
-#figForm:after {
-  margin-top: -290px;
-  margin-left: 240px;
-  -webkit-transform: rotate(32deg);
-  -moz-transform: rotate(32deg);
-  -o-transform: rotate(32deg);
-  transform: rotate(32deg);
 }
 
 #figForm form {
@@ -338,14 +329,6 @@ table thead {
   -o-transform: rotate(-25deg);
   transform: rotate(-25deg);
 }
-#view:after {
-  margin-top: -290px;
-  margin-left: 240px;
-  -webkit-transform: rotate(32deg);
-  -moz-transform: rotate(32deg);
-  -o-transform: rotate(32deg);
-  transform: rotate(32deg);
-}
 #view #form {
   width: 70%;
   margin: 30px auto;
@@ -411,3 +394,80 @@ table thead {
   float: right;
   background-color:#FFF;
 }
+h1{
+    text-align:center;
+    margin-top:2%;
+}
+
+#confirm {
+  margin-right: auto;
+  margin-left: 37%;
+  margin-top: 5%;
+  background: rgb(255, 255, 255);
+  width: 500px;
+  height: 330px;
+  position: fixed;
+  color: #333;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
+  float: left;
+}
+#confirm:before{
+  content: " ";
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 100px;
+  height: 30px;
+}
+#confirm:before {
+  margin-top: -12px;
+  margin-left: -45px;
+  -webkit-transform: rotate(-25deg);
+  -moz-transform: rotate(-25deg);
+  -o-transform: rotate(-25deg);
+  transform: rotate(-25deg);
+}
+
+#confirm form {
+  width: 70%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+#confirm form h1 {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+#confirm form h1:before {
+  display: inline-block;
+  content: " ";
+  margin-right: 15px;
+  width: 60px;
+  height: 6px;
+  border-top: 1px solid #333;
+}
+#confirm form h1:after {
+  display: inline-block;
+  content: " ";
+  margin-left: 15px;
+  width: 60px;
+  height: 6px;
+  border-top: 1px solid #333;
+}
+
+#confirm form input {
+  width: 100%;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 10px;
+  text-indent: 10px;
+  outline: none;
+  -webkit-transition: box-shadow 1s;
+  -moz-transition: box-shadow 1s;
+  -o-transition: box-shadow 1s;
+  transition: box-shadow 1s;
+}
+

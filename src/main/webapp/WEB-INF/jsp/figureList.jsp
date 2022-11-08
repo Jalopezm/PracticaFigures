@@ -11,7 +11,7 @@
 <body>
     <a href="/drawer" class="button">Draw Figure</a>
     <a href="/userFigureList" class="button">User Figures List</a>
-
+    <h1>Figure List</h1>
     <form method="post" action="/figureList">
         <table>
             <thead>
@@ -23,6 +23,7 @@
                     <th>PosY</th>
                     <th>Width</th>
                     <th>Color</th>
+                    <th>Date</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -37,6 +38,7 @@
                 <td>${figure.coordY}</td>
                 <td>${figure.width}</td>
                 <td>${figure.color}</td>
+                <td><%= (new java.util.Date()).toLocaleString()%></td>
                 <td>
                     <form method="post" action="/figureList">
                         <input type="hidden" value=${figure.id} name="figureId">

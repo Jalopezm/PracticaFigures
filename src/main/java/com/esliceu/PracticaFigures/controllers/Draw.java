@@ -1,5 +1,6 @@
 package com.esliceu.PracticaFigures.controllers;
 
+import com.esliceu.PracticaFigures.Model.Figure;
 import com.esliceu.PracticaFigures.Model.User;
 import com.esliceu.PracticaFigures.services.FigureServ;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/drawer")
 public class Draw extends HttpServlet {
@@ -41,8 +43,14 @@ public class Draw extends HttpServlet {
         color = req.getParameter("color");
         name = req.getParameter("figureName");
         user = currentUser;
+        List<Figure> figureList = FigureServ.userListFigures(user);
         if (name.equals("")) {
             name = type + " " + Math.round(Math.random() * 1000);
+        }
+        for (Figure figure : figureList) {
+            if (figure.getName().equals(name)){
+                name = type + " " + Math.round(Math.random() * 1000);
+            }
         }
         figureServ.figureCreation(name, type, color, posX, posY, width, user);
         RequestDispatcher dispatcher =

@@ -17,17 +17,18 @@
             <br>
             <input type="text" name="figureName" id="figureName" placeholder=" Figure Name">
             <br>
+            <label>Choose a Figure
             <select name="figures" id="type" required>
-                <option disabled selected>Choose a Figure</option>
                 <option value="circle">Circle</option>
                 <option value="triangle">Triangle</option>
                 <option value="square">Square</option>
                 <option value="pentagon">Pentagon</option>
                 <option value="7star">7 Point Star</option>
             </select>
+            </label>
             <br>
-            <select name="color" id="color" required>
-                <option disabled selected>Choose a Color</option>
+             <label>Choose a Color
+            <select name="color" id="color" required value="black">
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
                 <option value="grey">Grey</option>
@@ -35,6 +36,7 @@
                 <option value="green">Green</option>
                 <option value="black">Black</option>
             </select>
+            </label>
             <br>
             <input type="number" name="width" placeholder="Width" id="width" required>
             <br>
